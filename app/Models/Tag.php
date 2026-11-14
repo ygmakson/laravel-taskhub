@@ -9,6 +9,6 @@ class Tag extends Model
     protected $fillable=['name'];
 
     public function tasks() {
-        return $this->belongsToMany(Task::class);
+        return $this->belongsToMany(Task::class)->withTimestamps();
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable=['user_id', 'name'];
+    protected $fillable=['owner_id', 'name'];
 
     public function users() {
         return $this->belongsToMany(User::class)->withPivot('role')->withTimestamps();
@@ -14,5 +14,9 @@ class Project extends Model
 
     public function tasks() {
         return $this->hasMany(Task::class);
+    }
+
+    public function owner() {
+        return $this->belongsTo(User::class, 'owner_id');
     }
 }

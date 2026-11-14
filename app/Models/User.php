@@ -29,7 +29,6 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    protected $fillable=['name', 'email', 'email_verified_at', 'password'];
 
     public function projects() {
         return $this->belongsToMany(Project::class)->withPivot('role')->withTimestamps();
