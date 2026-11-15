@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
@@ -19,4 +20,7 @@ class Task extends Model
     public function assignee() {
         return $this->belongsTo(User::class, 'assignee_id');
     }
+
+    use HasFactory;
+
 }
