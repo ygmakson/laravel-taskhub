@@ -10,9 +10,12 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return Task::with(['assignee', 'tags'])
+            ->when($request->status, fn ($query, $status) => $query->where('status', $status))
+            ->latest()
+            ->paginate(15);
     }
 
     /**
