@@ -37,4 +37,8 @@ class User extends Authenticatable
     public function ownedProjects() {
         return $this->hasMany(Project::class, 'owner_id');
     }
+
+    public function assignedTasks() {
+        return $this->hasMany(Task::class, 'assignee_id');
+    }
 }

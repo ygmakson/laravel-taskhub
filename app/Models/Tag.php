@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
@@ -11,4 +12,6 @@ class Tag extends Model
     public function tasks() {
         return $this->belongsToMany(Task::class)->withTimestamps();
     }
+
+    use HasFactory;
 }
